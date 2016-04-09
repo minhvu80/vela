@@ -15,7 +15,7 @@ class View extends \yii\web\View{
     //put your code here
     function render($view, $params = [], $context = null)
     {
-        return str_replace('garlic', 'blood', parent::render($view, 
+        return str_replace('garlic', 'butter', parent::render($view, 
                 $params, $context));
     }
 }
