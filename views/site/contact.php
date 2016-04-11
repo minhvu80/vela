@@ -51,9 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'subject') ?>
                 
                     <?= $form->field($model, 'country_code')
-                            ->dropDownList(yii\helpers\ArrayHelper::map(app\models\Country::find()->select(['code','name'])->all(),
-                                            'code','name'),
-                                           ['prompt' => 'Choose your country'])
+                            ->dropDownList($countryDropDownItems,['prompt' => 'Choose your country'])
                             ->hint("ok to leave blank");
                     ?>
 

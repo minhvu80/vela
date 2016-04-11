@@ -9,6 +9,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\EntryForm;
+use app\models\Country;
+use yii\helpers\ArrayHelper;
 
 class SiteController extends Controller
 {
@@ -78,7 +80,7 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        
+        $countryDropDownItems = ArrayHelper::map(Country::find()->select(['code', 'name'])->all(), 'code', 'name');
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
@@ -86,7 +88,7 @@ class SiteController extends Controller
         }
         return $this->render('contact', [
             'model' => $model,
-            
+            'countryDropDownItems' => $countryDropDownItems
         ]);
     }
 
