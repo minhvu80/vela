@@ -13,6 +13,7 @@ class ContactForm extends Model
     public $name;
     public $email;
     public $subject;
+    public $country_code;
     public $body;
     public $verifyCode;
 

@@ -11,13 +11,14 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 
+
 /**
  * EntryForm is the model behind entry form
  *
  * @author minhv
  */
 class EntryForm extends Model {
-    public $name,$email,$phone,$city,$captcha;
+    public $name,$email,$phone,$city,$captcha,$country_code;
     
     public function rules(){
         return [

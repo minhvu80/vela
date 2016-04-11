@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
+
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -48,6 +49,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'email') ?>
 
                     <?= $form->field($model, 'subject') ?>
+                
+                    <?= $form->field($model, 'country_code')
+                            ->dropDownList(yii\helpers\ArrayHelper::map(app\models\Country::find()->select(['code','name'])->all(),
+                                            'code','name'),
+                                           ['prompt' => 'Choose your country'])
+                            ->hint("ok to leave blank");
+                    ?>
 
                     <?= $form->field($model, 'body')->textArea(['rows' => 6]) ?>
 
